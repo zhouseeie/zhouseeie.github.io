@@ -7,6 +7,9 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 
+# 页脚中的 GitHub 项目快捷入口；部署到其他仓库时请改成对应地址。
+repository_url: https://github.com/zhouseeie/zhouseeie.github.io
+
 typography:
   # 默认版：当前居中留白样式；full：突破容器并占满屏幕宽度
   layout_mode: adaptive

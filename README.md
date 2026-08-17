@@ -36,6 +36,7 @@
 - 推荐使用 `mapping: pathname`，它会把每篇文章的页面路径绑定到对应 Discussion；不要随意改变文章 URL，否则可能生成新的讨论串。
 - 站长删除评论时，直接打开对应的 GitHub Discussion，在评论菜单中删除或隐藏；需要停止继续评论时可以锁定整个 Discussion。
 - `CNAME` 不在模板中提供占位内容，避免误配置；有自定义域名时再复制你自己的 CNAME。
+- `_config.yml` 中的 `repository_url` 控制页脚“GitHub 项目”快捷入口；请部署到其他仓库时改成对应的 GitHub 地址。若留空，GitHub Pages 会尝试使用 `site.github.repository_url`。
 
 网站视觉样式只在 `assets/css/style.css` 中维护：黑白、宋体/serif、文字为主、无阴影无圆角、细分割线。
 

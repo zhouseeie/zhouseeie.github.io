@@ -39,6 +39,13 @@ a:hover { color: var(--muted); }
 .home-intro { border-bottom: 1px solid var(--line); padding-bottom: 52px; margin-bottom: 18px; }
 .home-intro h1 { max-width: 560px; margin: 12px 0; font-size: clamp(28px, 6vw, 48px); line-height: 1.35; font-weight: 500; letter-spacing: .03em; }
 .home-intro p:last-child, .post-item p, .post-description { color: var(--muted); }
+.post-search { border-bottom: 1px solid var(--line); padding: 20px 0 18px; margin-bottom: 2px; }
+.search-label { display: block; color: var(--faint); font-size: 12px; letter-spacing: .12em; margin-bottom: 8px; }
+.search-input { display: block; width: 100%; border: 1px solid var(--line); border-radius: 0; padding: 12px 14px; color: var(--ink); background: var(--paper); font: inherit; font-size: 15px; line-height: 1.5; outline: none; }
+.search-input:focus { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.search-count { color: var(--faint); font-size: 12px; margin: 8px 0 0; }
+.post-item[hidden] { display: none; }
+.empty-state { color: var(--muted); font-size: 14px; padding: 24px 0; }
 .post-item { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
 .post-item h2 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 6px; }
 .post-item h2 a { text-decoration: none; }
@@ -62,6 +69,8 @@ a:hover { color: var(--muted); }
 .comments-title { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 20px; }
 .comments script { display: block; min-height: 120px; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; padding-bottom: 32px; color: var(--faint); font-size: 12px; }
+.site-footer-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.site-footer-link:hover { color: var(--ink); }
 @media (max-width: 560px) {
   .site-width { width: min(100% - 28px, 1440px); }
   .site-layout-adaptive .site-width { width: min(100% - 28px, var(--content-width)); }

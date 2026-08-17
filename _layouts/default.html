@@ -55,9 +55,13 @@
     </div>
   </header>
   <main class="site-width site-main">{{ content }}</main>
+  {% assign repository_url = site.repository_url | default: site.github.repository_url %}
   <footer class="site-footer site-width">
     <span>{{ site.title }}</span>
     <span>以文字为中心，保持简单。</span>
+    {% if repository_url %}
+      <a class="site-footer-link" href="{{ repository_url | escape }}" target="_blank" rel="noopener" aria-label="打开 GitHub 项目">GitHub 项目</a>
+    {% endif %}
   </footer>
 </body>
 </html>
