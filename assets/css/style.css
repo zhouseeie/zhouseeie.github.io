@@ -14,10 +14,21 @@ body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 a:hover { color: var(--muted); }
 .site-width { width: min(var(--content-width), calc(100% - 40px)); margin: 0 auto; }
-/* 默认 adaptive：保留居中窄版；full：正文与页面内容占满可用宽度。 */
+/* 默认版：保留当前居中内容和两侧留白；full：突破窄版容器，进入整个视口。 */
 .site-layout-adaptive .site-width { width: min(var(--content-width), calc(100% - 40px)); }
-.site-layout-full .site-width { width: calc(100% - 40px); max-width: none; }
-.site-layout-full .post-content { max-width: none; }
+.site-layout-full { overflow-x: hidden; }
+.site-layout-full .site-width,
+.site-layout-full .post {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  transform: translateX(-50%);
+}
+.site-layout-full .site-main { padding-left: 0; padding-right: 0; }
+.site-layout-full .post-content { width: 100vw; max-width: none; margin-left: 0; margin-right: 0; }
 .site-header { border-bottom: 1px solid var(--line); }
 .site-header-inner { min-height: 72px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
 .site-title { font-size: 20px; font-weight: 600; letter-spacing: .04em; text-decoration: none; }
@@ -52,9 +63,9 @@ a:hover { color: var(--muted); }
 .comments script { display: block; min-height: 120px; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; padding-bottom: 32px; color: var(--faint); font-size: 12px; }
 @media (max-width: 560px) {
-  .site-width { width: min(100% - 28px, 760px); }
+  .site-width { width: min(100% - 28px, 1440px); }
   .site-layout-adaptive .site-width { width: min(100% - 28px, var(--content-width)); }
-  .site-layout-full .site-width { width: calc(100% - 28px); }
+  .site-layout-full .site-width { width: 100vw; }
   .site-header-inner { min-height: 60px; }
   .site-main { padding-top: 44px; }
   .post-item { grid-template-columns: 1fr; gap: 2px; }

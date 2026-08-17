@@ -8,14 +8,14 @@ highlighter: rouge
 permalink: /:year/:month/:day/:title/
 
 typography:
-  # adaptive：正文居中窄版；full：正文占满可用页面宽度
+  # 默认版：当前居中留白样式；full：突破容器并占满屏幕宽度
   layout_mode: adaptive
   # horizontal-tb：横排；vertical-rl：从右向左竖排；vertical-lr：从左向右竖排
   writing_mode: horizontal-tb
   text_orientation: mixed
   letter_spacing: 0em
   line_height: 1.9
-  content_width: 760px
+  content_width: 1440px
 
 # GitHub Discussions comments via giscus.
 # Fill repo_id and category_id from https://giscus.app/ before enabling.

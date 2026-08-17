@@ -49,7 +49,7 @@ typography:
   text_orientation: mixed      # 竖排时中西文方向
   letter_spacing: 0em          # 字符间距，例如 0.02em 或 -0.01em
   line_height: 1.9             # 行距
-  content_width: 760px         # 页面正文最大宽度
+  content_width: 1440px         # 页面正文最大宽度
 ```
 
 `writing_mode: vertical-rl` 会让文章正文从右向左竖排，`vertical-lr` 会从左向右竖排；导航、页脚和评论区仍保持横向，避免整页操作困难。修改后重新构建 Jekyll 网站即可生效。

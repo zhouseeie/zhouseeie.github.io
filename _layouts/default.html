@@ -11,7 +11,7 @@
       --text-orientation: {{ page.text_orientation | default: site.typography.text_orientation | default: 'mixed' | escape }};
       --letter-spacing: {{ page.letter_spacing | default: site.typography.letter_spacing | default: '0em' | escape }};
       --line-height: {{ page.line_height | default: site.typography.line_height | default: '1.9' | escape }};
-      --content-width: {{ page.content_width | default: site.typography.content_width | default: '760px' | escape }};
+      --content-width: {{ page.content_width | default: site.typography.content_width | default: '1440px' | escape }};
     }
   </style>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
@@ -19,6 +19,28 @@
     {% assign layout_class = 'site-layout-full' %}
   {% else %}
     {% assign layout_class = 'site-layout-adaptive' %}
+  {% endif %}
+  {% if layout_class == 'site-layout-full' %}
+  <style id="site-full-bleed-override">
+    body.site-layout-full { overflow-x: hidden; }
+    body.site-layout-full .site-width,
+    body.site-layout-full .post {
+      position: relative !important;
+      left: 50% !important;
+      width: 100vw !important;
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      transform: translateX(-50%) !important;
+    }
+    body.site-layout-full .site-main { padding-left: 0 !important; padding-right: 0 !important; }
+    body.site-layout-full .post-content {
+      width: 100vw !important;
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  </style>
   {% endif %}
 </head>
 <body class="{{ layout_class }}">
