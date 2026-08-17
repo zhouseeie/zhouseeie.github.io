@@ -1,18 +1,26 @@
-plugins:
-  - jekyll-relative-links
-relative_links:
-  enabled: true
-  collections: true
-include:
-  - CONTRIBUTING.md
-  - README.md
-  - LICENSE.md
-  - COPYING.md
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - ISSUE_TEMPLATE.md
-  - PULL_REQUEST_TEMPLATE.md
-title: Zhouseeie's Home Page 帅鸽的主页
-theme: jekyll-theme-cayman
-timezone: Asia/Shanghai
-future: true
+# 墨客 Jekyll 主题
+# 使用方式：将 jekyll-theme/ 下的文件上传到你的博客仓库根目录。
+title: 我的博客
+description: 以文字为主的个人博客
+lang: zh-CN
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# GitHub Discussions comments via giscus.
+# Fill repo_id and category_id from https://giscus.app/ before enabling.
+comments:
+  enabled: false
+  provider: giscus
+  repo: username/username.github.io
+  repo_id: ''
+  category: General
+  category_id: ''
+  mapping: pathname
+  strict: '0'
+  reactions_enabled: '1'
+  emit_metadata: '0'
+  input_position: bottom
+  theme: light
+  lang: zh-CN
+  loading: lazy
