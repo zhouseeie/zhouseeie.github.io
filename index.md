@@ -3,16 +3,21 @@ layout: default
 title: 首页
 ---
 <section class="home-intro">
-  <p class="eyebrow">RECENT WRITINGS</p>
+  <p class="eyebrow">A QUIET PLACE FOR WRITING</p>
   <h1>写下值得留下的文字。</h1>
-  <p>这里是 {{ site.title }}。不追逐喧闹，只记录真正想说的话。</p>
+  <p>这里是 {{ site.title }}。记录想法、经验和正在慢慢形成的答案。</p>
+  <p class="home-link"><a href="{{ '/blog/' | relative_url }}">进入博客 →</a></p>
 </section>
-<section class="post-list" aria-label="文章列表">
-  {% for post in site.posts %}
+<section class="home-latest" aria-labelledby="latest-title">
+  <div class="section-heading">
+    <h2 id="latest-title">最近文章</h2>
+    <a href="{{ '/blog/' | relative_url }}">查看全部</a>
+  </div>
+  {% for post in site.posts limit: 3 %}
   <article class="post-item">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
     <div>
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
       <p>{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
     </div>
   </article>

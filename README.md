@@ -38,3 +38,18 @@
 - `CNAME` 不在模板中提供占位内容，避免误配置；有自定义域名时再复制你自己的 CNAME。
 
 网站视觉样式只在 `assets/css/style.css` 中维护：黑白、宋体/serif、文字为主、无阴影无圆角、细分割线。
+
+## 文字排版设置
+
+在 `_config.yml` 的 `typography` 中调整博客正文：
+
+```yaml
+typography:
+  writing_mode: horizontal-tb # 横排；也可用 vertical-rl 或 vertical-lr
+  text_orientation: mixed      # 竖排时中西文方向
+  letter_spacing: 0em          # 字符间距，例如 0.02em 或 -0.01em
+  line_height: 1.9             # 行距
+  content_width: 760px         # 页面正文最大宽度
+```
+
+`writing_mode: vertical-rl` 会让文章正文从右向左竖排，`vertical-lr` 会从左向右竖排；导航、页脚和评论区仍保持横向，避免整页操作困难。修改后重新构建 Jekyll 网站即可生效。
