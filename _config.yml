@@ -8,6 +8,8 @@ highlighter: rouge
 permalink: /:year/:month/:day/:title/
 
 typography:
+  # adaptive：正文居中窄版；full：正文占满可用页面宽度
+  layout_mode: adaptive
   # horizontal-tb：横排；vertical-rl：从右向左竖排；vertical-lr：从左向右竖排
   writing_mode: horizontal-tb
   text_orientation: mixed

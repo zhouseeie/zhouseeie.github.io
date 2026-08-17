@@ -7,16 +7,21 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
   <style id="site-typography">
     :root {
-      --writing-mode: {{ site.typography.writing_mode | default: 'horizontal-tb' | escape }};
-      --text-orientation: {{ site.typography.text_orientation | default: 'mixed' | escape }};
-      --letter-spacing: {{ site.typography.letter_spacing | default: '0em' | escape }};
-      --line-height: {{ site.typography.line_height | default: '1.9' | escape }};
-      --content-width: {{ site.typography.content_width | default: '760px' | escape }};
+      --writing-mode: {{ page.writing_mode | default: site.typography.writing_mode | default: 'horizontal-tb' | escape }};
+      --text-orientation: {{ page.text_orientation | default: site.typography.text_orientation | default: 'mixed' | escape }};
+      --letter-spacing: {{ page.letter_spacing | default: site.typography.letter_spacing | default: '0em' | escape }};
+      --line-height: {{ page.line_height | default: site.typography.line_height | default: '1.9' | escape }};
+      --content-width: {{ page.content_width | default: site.typography.content_width | default: '760px' | escape }};
     }
   </style>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if page.layout_mode == 'full' or site.typography.layout_mode == 'full' %}
+    {% assign layout_class = 'site-layout-full' %}
+  {% else %}
+    {% assign layout_class = 'site-layout-adaptive' %}
+  {% endif %}
 </head>
-<body>
+<body class="{{ layout_class }}">
   <header class="site-header">
     <div class="site-width site-header-inner">
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
