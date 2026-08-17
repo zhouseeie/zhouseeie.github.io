@@ -39,12 +39,15 @@ a:hover { color: var(--muted); }
 .home-intro { border-bottom: 1px solid var(--line); padding-bottom: 52px; margin-bottom: 18px; }
 .home-intro h1 { max-width: 560px; margin: 12px 0; font-size: clamp(28px, 6vw, 48px); line-height: 1.35; font-weight: 500; letter-spacing: .03em; }
 .home-intro p:last-child, .post-item p, .post-description { color: var(--muted); }
-.post-search { border-bottom: 1px solid var(--line); padding: 20px 0 18px; margin-bottom: 2px; }
-.search-label { display: block; color: var(--faint); font-size: 12px; letter-spacing: .12em; margin-bottom: 8px; }
-.search-input { display: block; width: 100%; border: 1px solid var(--line); border-radius: 0; padding: 12px 14px; color: var(--ink); background: var(--paper); font: inherit; font-size: 15px; line-height: 1.5; outline: none; }
-.search-input:focus { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
-.search-count { color: var(--faint); font-size: 12px; margin: 8px 0 0; }
+.post-search { display: grid; grid-template-columns: 110px minmax(0, 1fr); column-gap: 24px; align-items: start; border-bottom: 1px solid var(--line); padding: 20px 0 18px; margin-bottom: 2px; }
+.search-label { color: var(--faint); font-size: 12px; letter-spacing: .12em; padding-top: 10px; }
+.search-input { display: block; width: 100%; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 8px 0 10px; color: var(--ink); background: transparent; font: inherit; font-size: 15px; line-height: 1.5; outline: none; }
+.search-input::placeholder { color: var(--faint); }
+.search-input:focus { border-color: var(--ink); box-shadow: none; }
+.search-count { grid-column: 2; color: var(--faint); font-size: 12px; margin: 8px 0 0; }
 .post-item[hidden] { display: none; }
+.post-item.is-match { border-left: 3px solid var(--ink); padding-left: 16px; }
+.post-item mark { background: var(--ink); color: var(--paper); padding: 0 .15em; }
 .empty-state { color: var(--muted); font-size: 14px; padding: 24px 0; }
 .post-item { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
 .post-item h2 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 6px; }
@@ -77,6 +80,9 @@ a:hover { color: var(--muted); }
   .site-layout-full .site-width { width: 100vw; }
   .site-header-inner { min-height: 60px; }
   .site-main { padding-top: 44px; }
+  .post-search { grid-template-columns: 1fr; row-gap: 0; }
+  .search-label { padding-top: 0; margin-bottom: 8px; }
+  .search-count { grid-column: 1; }
   .post-item { grid-template-columns: 1fr; gap: 2px; }
   .site-footer { flex-direction: column; gap: 4px; }
 }

@@ -42,6 +42,32 @@ permalink: /blog/
     if (!input || !count || !empty) return;
 
     const normalize = (value) => value.trim().toLocaleLowerCase();
+    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const highlight = (element, query) => {
+      const original = element.textContent || '';
+      if (!query) {
+        element.textContent = original;
+        return;
+      }
+      const regex = new RegExp(escapeRegExp(query), 'giu');
+      const fragment = document.createDocumentFragment();
+      let lastIndex = 0;
+      let match;
+      while ((match = regex.exec(original)) !== null) {
+        if (match.index > lastIndex) {
+          fragment.appendChild(document.createTextNode(original.slice(lastIndex, match.index)));
+        }
+        const mark = document.createElement('mark');
+        mark.textContent = match[0];
+        fragment.appendChild(mark);
+        lastIndex = match.index + match[0].length;
+      }
+      if (lastIndex < original.length) {
+        fragment.appendChild(document.createTextNode(original.slice(lastIndex)));
+      }
+      element.replaceChildren(fragment);
+    };
+
     const update = () => {
       const query = normalize(input.value);
       let visible = 0;
@@ -51,7 +77,12 @@ permalink: /blog/
           .join(' ')
           .toLocaleLowerCase();
         const matches = !query || haystack.includes(query);
+        const title = post.querySelector('h2 a');
+        const summary = post.querySelector('div > p');
         post.hidden = !matches;
+        post.classList.toggle('is-match', Boolean(query) && matches);
+        if (title) highlight(title, query);
+        if (summary) highlight(summary, query);
         if (matches) visible += 1;
       });
       count.textContent = query ? `找到 ${visible} 篇文章` : `共 ${visible} 篇文章`;
